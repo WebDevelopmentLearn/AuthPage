@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>AuthPage</title>
+  </head>
+  <body>
+    <!-- ================ START OF SIGN UP ==================== -->
+    <div class="signUpContainer">
+      <form class="signUpForm">
+        <h1>Registration</h1>
+        <input
+          type="text"
+          name="username"
+          class="username"
+          placeholder="Username"
+        />
+        <input
+          type="tel"
+          name="phoneNumber"
+          class="phoneNumber"
+          placeholder="Phone number"
+        />
+        <input type="email" name="email" class="email" placeholder="Email" />
+        <div class="password_container">
+          <input
+            type="password"
+            name="password"
+            class="password"
+            placeholder="Password"
+          />
+          <a href="#" class="password-control"></a>
+        </div>
+        <button class="signUpBtn" type="submit">Sign In</button>
+        <!-- <input class="signUpBtn" type="submit" value="Sign Up" /> -->
+        <p class="statusMessage"></p>
+      </form>
+    </div>
+    <!-- ================ END OF SIGN UP ==================== -->
+
+    <!-- ================ START OF LOG IN ====================  -->
+    <!-- <div class="loginContainer hidden">
+      <form class="loginForm">
+        <label>
+          Email <input type="email" name="email" class="emailLoginForm"
+        /></label>
+        <label>
+          Password
+          <input type="password" name="password" class="passwordLoginForm"
+        /></label>
+        <input type="submit" value="Log In" />
+      </form>
+    </div> -->
+    <!-- ================ END OF LOG IN ==================== -->
+  </body>
+  <script src="scripts/index.js"></script>
+</html>
