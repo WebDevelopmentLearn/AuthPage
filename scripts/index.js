@@ -10,10 +10,10 @@ const users = [{ username: "", password: "" }];
 
 // ================ START OF SIGN IN ====================
 const signUpContainer = document.querySelector(".signUpContainer");
-const usernameInput = document.querySelector(".username");
-const phoneNumberInput = document.querySelector(".phoneNumber");
-const emailInput = document.querySelector(".email");
-const passwordInput = document.querySelector(".password");
+const usernameInput = document.querySelector(".signUpUsernameInput");
+const phoneNumberInput = document.querySelector(".signUpPhoneNumberInput");
+const emailInput = document.querySelector(".signUpEmailInput");
+const passwordInput = document.querySelector(".signUpPasswordInput");
 const signUpInput = document.querySelector(".signUpForm");
 const hasAccountBtn = document.querySelector(".hasAccount");
 const statusMsg = document.querySelector(".statusMessage");
@@ -26,9 +26,6 @@ const loginUsernameInput = document.querySelector(".loginUsernameInput");
 const loginPasswordInput = document.querySelector(".loginPasswordInput");
 const statusLoginMsg = document.querySelector(".statusLoginMessage");
 // ================ END OF LOG IN ====================
-
-const par = document.createElement("p");
-par.id = "responsePar";
 
 const hasDigits = /\d/; //регулярное выражение, которое проверяет наличие цифр в строке.
 const hasLetters = /[a-zA-Z]/; //регулярное выражение, которое проверяет наличие букв в строке.

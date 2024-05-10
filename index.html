@@ -8,60 +8,63 @@
   </head>
   <body>
     <!-- ================ START OF SIGN UP ==================== -->
-    <div class="signUpContainer">
+    <div class="signUpContainer universalContainer">
       <div>
-        <form class="signUpForm">
+        <form class="signUpForm universalForm">
           <h1>Registration</h1>
           <input
             type="text"
             name="username"
-            class="username"
+            class="signUpUsernameInput universalInput"
             placeholder="Username"
           />
           <input
             type="tel"
             name="phoneNumber"
-            class="phoneNumber"
+            class="signUpPhoneNumberInput universalInput"
             placeholder="Phone number"
           />
-          <input type="email" name="email" class="email" placeholder="Email" />
+          <input
+            type="email"
+            name="email"
+            class="signUpEmailInput universalInput"
+            placeholder="Email"
+          />
           <input
             type="password"
             name="password"
-            class="password"
+            class="signUpPasswordInput universalInput"
             placeholder="Password"
           />
-          <!-- <a href="#" class="password-control"></a> -->
 
-          <button class="signUpBtn" type="submit">Sign In</button>
-          <!-- <input class="signUpBtn" type="submit" value="Sign Up" /> -->
+          <button class="signUpBtn universalBtn" type="submit">Sign In</button>
+
           <p class="statusMessage"></p>
         </form>
-        <button class="hasAccount">Already registered</button>
+        <button class="hasAccount universalBtn">Already registered</button>
       </div>
     </div>
     <!-- ================ END OF SIGN UP ==================== -->
 
     <!-- ================ START OF LOG IN ====================  -->
-    <div class="loginContainer hidden">
+    <div class="loginContainer universalContainer hidden">
       <div>
-        <form class="loginForm">
-          <h1>Registration</h1>
+        <form class="loginForm universalForm">
+          <h1>Login</h1>
           <input
             type="text"
             name="username"
-            class="loginUsernameInput"
+            class="loginUsernameInput universalInput"
             placeholder="Username"
           />
           <input
             type="password"
             name="password"
-            class="loginPasswordInput"
+            class="loginPasswordInput universalInput"
             placeholder="Password"
           />
-          <button class="logInBtn" type="submit">Log In</button>
+          <button class="logInBtn universalBtn" type="submit">Log In</button>
           <p class="statusLoginMessage"></p>
-          <!-- <input type="submit" value="Log In" /> -->
         </form>
       </div>
     </div>

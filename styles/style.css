@@ -8,28 +8,21 @@ html {
   font-size: 10px;
 }
 
-.signUpContainer {
-  padding: 1%;
+h1 {
+  font-size: 2.8rem;
+}
 
+.universalContainer {
+  padding: 1%;
   background-color: rgba(244, 220, 183, 0.651);
   height: 100vh;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.signUpForm {
-  /* border: 1px solid green; */
-  /* background-color: rgb(199, 230, 248);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  padding: 10px;
-  border-radius: 10px; */
+.universalForm {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,7 +30,7 @@ html {
   gap: 5px;
 }
 
-.signUpContainer > div {
+.universalContainer > div {
   background-color: rgb(199, 230, 248);
   display: flex;
   flex-direction: column;
@@ -49,29 +42,16 @@ html {
   position: relative;
 }
 
-.signUpForm h1,
-.loginForm h1 {
-  font-size: 2.8rem;
-}
-
-.signUpForm span {
-  font-size: 1.8rem;
-}
-
-.signUpForm input,
-.loginForm input {
+.universalInput {
   padding: 2%;
   max-width: 100%;
 }
 
-.signUpForm input:focus,
-.loginForm input:focus {
-  /* border: none; */
+.universalInput:focus {
   outline: none;
 }
 
-.signUpBtn,
-.logInBtn {
+.universalBtn {
   margin-top: 10px;
   width: 100%;
   height: 25px;
@@ -79,52 +59,18 @@ html {
   border: 1px solid rgba(203, 203, 203, 0.623);
 }
 
-.signUpBtn:hover,
-.hasAccount:hover,
-.logInBtn:hover {
+.universalBtn:hover {
   background-color: rgb(224, 183, 246);
-}
-
-.hasAccount {
-  margin-top: 10px;
-  width: 100%;
-  height: 25px;
-  border-radius: 6px;
-  border: 1px solid rgba(203, 203, 203, 0.623);
-}
-
-.loginContainer {
-  padding: 1%;
-
-  background-color: rgba(244, 220, 183, 0.651);
-  height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.loginContainer > div {
-  background-color: rgb(199, 230, 248);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  padding: 10px;
-  border-radius: 10px;
-  position: relative;
-}
-
-.loginForm {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
 }
 
 .hidden {
   display: none;
 }
+
+/* ================ START OF SIGN UP PAGE ==================== */
+
+/* ================ END OF SIGN UP PAGE ==================== */
+
+/* ================ START OF LOG IN PAGE ==================== */
+
+/* ================ END OF LOG IN PAGE ==================== */
