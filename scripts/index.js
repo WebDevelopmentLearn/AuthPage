@@ -32,56 +32,7 @@ const hasLetters = /[a-zA-Z]/; //регулярное выражение, кот
 
 const allUsers = JSON.parse(localStorage.getItem("users")) || [];
 
-hasAccountBtn.addEventListener("click", () => {
-  loginContainer.classList.toggle("hidden");
-  signUpInput.classList.toggle("hidden");
-  signUpContainer.classList.toggle("hidden");
-});
-
-logInInput.addEventListener("submit", (event) => {
-  event.preventDefault();
-  console.log(loginUsernameInput.value);
-  console.log(loginPasswordInput.value);
-  const currentUserData = {
-    username: loginUsernameInput.value,
-    password: loginPasswordInput.value,
-  };
-  if (
-    hasUsername(currentUserData.username) &&
-    hasPassword(currentUserData.password)
-  ) {
-    alert("Вы успешно авторизировались");
-  } else {
-    responseStatus("fail", statusLoginMsg, "Неверный логин или пароль!");
-  }
-});
-
-function hasUsername(username) {
-  let foundUsername = false;
-  for (let i = 0; i < allUsers.length; i++) {
-    const el = allUsers[i];
-    // console.log(`Username: ${el.username} | Target username: ${username}`);
-    if (el.username === username) {
-      foundUsername = true;
-      break;
-    }
-  }
-  return foundUsername;
-}
-
-function hasPassword(password) {
-  // console.log(password);
-  let foundPassword = false;
-  for (let i = 0; i < allUsers.length; i++) {
-    const el = allUsers[i];
-    // console.log(`Password: ${el.password} | Target password: ${password}`);
-    if (el.password === password) {
-      foundPassword = true;
-      break;
-    }
-  }
-  return foundPassword;
-}
+// ================ START OF SIGN UP ====================
 
 signUpInput.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -109,8 +60,92 @@ signUpInput.addEventListener("submit", (event) => {
     alert("Вы успешно зарегестрировались!");
     allUsers.push(currentUserData);
     localStorage.setItem("users", JSON.stringify(allUsers));
+    clearInputs([usernameInput, phoneNumberInput, emailInput, passwordInput]);
   }
 });
+
+usernameInput.addEventListener("keyup", (e) => {
+  const isValid = validateUsername(e.target.value);
+  if (isValid) {
+    responseStatus("success", statusMsg, "Имя пользователя валидно");
+  } else {
+    responseStatus("fail", statusMsg, "Имя пользователя не валидно");
+  }
+});
+
+phoneNumberInput.addEventListener("keyup", (e) => {
+  const isValid = validateTelefonNumber(e.target.value);
+  if (isValid) {
+    responseStatus("success", statusMsg, "Номер телефона валидный");
+  } else {
+    responseStatus("fail", statusMsg, "Номер телефона не валидный");
+  }
+});
+
+emailInput.addEventListener("keyup", (e) => {
+  const isValid = validateEmail(e.target.value);
+  if (isValid) {
+    responseStatus("success", statusMsg, "Электронная почта валидна");
+  } else {
+    responseStatus("fail", statusMsg, "Электронная почта не валидна");
+  }
+});
+
+passwordInput.addEventListener("keyup", (e) => {
+  const isValid = validatePassword(e.target.value);
+  if (isValid) {
+    responseStatus("success", statusMsg, "Пароль валидный");
+  } else {
+    responseStatus("fail", statusMsg, "Пароль не валидный");
+  }
+});
+
+hasAccountBtn.addEventListener("click", () => {
+  loginContainer.classList.toggle("hidden");
+  signUpInput.classList.toggle("hidden");
+  signUpContainer.classList.toggle("hidden");
+});
+
+usernameInput.addEventListener("blur", () => {
+  statusMsg.textContent = "";
+});
+
+phoneNumberInput.addEventListener("blur", () => {
+  statusMsg.textContent = "";
+});
+
+emailInput.addEventListener("blur", () => {
+  statusMsg.textContent = "";
+});
+
+passwordInput.addEventListener("blur", () => {
+  statusMsg.textContent = "";
+});
+
+// ================ END OF SIGN UP ====================
+
+// ================ START OF LOG IN ====================
+
+logInInput.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const currentUserData = {
+    username: loginUsernameInput.value,
+    password: loginPasswordInput.value,
+  };
+  if (
+    hasUsername(currentUserData.username) &&
+    hasPassword(currentUserData.password)
+  ) {
+    alert("Вы успешно авторизировались");
+    clearInputs([loginUsernameInput, loginPasswordInput]);
+  } else {
+    responseStatus("fail", statusLoginMsg, "Неверный логин или пароль!");
+  }
+});
+
+// ================ END OF LOG IN ====================
+
+// ================ START OF VALIDATIONS FUNCTIONS ====================
 
 function isEmailAlready(users, targetEmail) {
   let flag = false;
@@ -208,58 +243,50 @@ function validateUsername(username) {
   return !flag && username.length >= 2 && username.length <= 24;
 }
 
-usernameInput.addEventListener("keyup", (e) => {
-  const isValid = validateUsername(e.target.value);
-  if (isValid) {
-    responseStatus("success", statusMsg, "Имя пользователя валидно");
-  } else {
-    responseStatus("fail", statusMsg, "Имя пользователя не валидно");
+/**
+ * Данная функция проверяет, соответствует ли введенное имя пользователя одному из списка
+ * @param {String} username - имя пользователя, которое ввел пользователь
+ * @returns true - если указанное имя пользователя есть в базе
+ */
+function hasUsername(username) {
+  let foundUsername = false;
+  for (let i = 0; i < allUsers.length; i++) {
+    const el = allUsers[i];
+    if (el.username === username) {
+      foundUsername = true;
+      break;
+    }
   }
-});
+  return foundUsername;
+}
 
-phoneNumberInput.addEventListener("keyup", (e) => {
-  const isValid = validateTelefonNumber(e.target.value);
-  if (isValid) {
-    responseStatus("success", statusMsg, "Номер телефона валидный");
-  } else {
-    responseStatus("fail", statusMsg, "Номер телефона не валидный");
+/**
+ * Данная функция проверяет, соответствует ли введенный пароль одному из списка
+ * @param {String} password - пароль, которое ввел пользователь
+ * @returns true - если указанный пароль есть в базе
+ */
+function hasPassword(password) {
+  let foundPassword = false;
+  for (let i = 0; i < allUsers.length; i++) {
+    const el = allUsers[i];
+    if (el.password === password) {
+      foundPassword = true;
+      break;
+    }
   }
-});
+  return foundPassword;
+}
 
-emailInput.addEventListener("keyup", (e) => {
-  const isValid = validateEmail(e.target.value);
-  if (isValid) {
-    responseStatus("success", statusMsg, "Электронная почта валидна");
-  } else {
-    responseStatus("fail", statusMsg, "Электронная почта не валидна");
-  }
-});
+// ================ END OF VALIDATIONS FUNCTIONS ====================
 
-passwordInput.addEventListener("keyup", (e) => {
-  const isValid = validatePassword(e.target.value);
-  if (isValid) {
-    responseStatus("success", statusMsg, "Пароль валидный");
-  } else {
-    responseStatus("fail", statusMsg, "Пароль не валидный");
-  }
-});
+// ================ START OF UTILS FUNCTIONS ====================
 
-usernameInput.addEventListener("blur", () => {
-  statusMsg.textContent = "";
-});
-
-phoneNumberInput.addEventListener("blur", () => {
-  statusMsg.textContent = "";
-});
-
-emailInput.addEventListener("blur", () => {
-  statusMsg.textContent = "";
-});
-
-passwordInput.addEventListener("blur", () => {
-  statusMsg.textContent = "";
-});
-
+/**
+ * Данная функция применяет к целевому html-элементу текст и цвет.
+ * @param {String} type - тип сообщения(success - успех, fail - неудача, unknown - неизвестная ошибка)
+ * @param {Element} obj  - элемент, к которому будут применены текст и цвет
+ * @param {String} msg - сообщение, которое будет выводиться пользователю
+ */
 function responseStatus(type, obj, msg) {
   obj.textContent = msg;
   switch (type) {
@@ -274,3 +301,15 @@ function responseStatus(type, obj, msg) {
       break;
   }
 }
+
+/**
+ * Данная функция очищает input поля
+ * @param {Array} inputs - массив input'ов, которые необходимо очистить.
+ */
+function clearInputs(inputs) {
+  inputs.forEach((el) => {
+    el.value = "";
+  });
+}
+
+// ================ START OF UTILS FUNCTIONS ====================
