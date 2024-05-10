@@ -66,38 +66,32 @@ signUpInput.addEventListener("submit", (event) => {
 
 usernameInput.addEventListener("keyup", (e) => {
   const isValid = validateUsername(e.target.value);
-  if (isValid) {
-    responseStatus("success", statusMsg, "Имя пользователя валидно");
-  } else {
-    responseStatus("fail", statusMsg, "Имя пользователя не валидно");
-  }
+  const message = isValid
+    ? "Имя пользователя валидно"
+    : "Имя пользователя не валидно";
+  responseStatus(isValid ? "success" : "fail", statusMsg, message);
 });
 
 phoneNumberInput.addEventListener("keyup", (e) => {
   const isValid = validateTelefonNumber(e.target.value);
-  if (isValid) {
-    responseStatus("success", statusMsg, "Номер телефона валидный");
-  } else {
-    responseStatus("fail", statusMsg, "Номер телефона не валидный");
-  }
+  const message = isValid
+    ? "Номер телефона валидный"
+    : "Номер телефона не валидный";
+  responseStatus(isValid ? "success" : "fail", statusMsg, message);
 });
 
 emailInput.addEventListener("keyup", (e) => {
   const isValid = validateEmail(e.target.value);
-  if (isValid) {
-    responseStatus("success", statusMsg, "Электронная почта валидна");
-  } else {
-    responseStatus("fail", statusMsg, "Электронная почта не валидна");
-  }
+  const message = isValid
+    ? "Электронная почта валидна"
+    : "Электронная почта не валидна";
+  responseStatus(isValid ? "success" : "fail", statusMsg, message);
 });
 
 passwordInput.addEventListener("keyup", (e) => {
   const isValid = validatePassword(e.target.value);
-  if (isValid) {
-    responseStatus("success", statusMsg, "Пароль валидный");
-  } else {
-    responseStatus("fail", statusMsg, "Пароль не валидный");
-  }
+  const message = isValid ? "Пароль валидный" : "Пароль не валидный";
+  responseStatus(isValid ? "success" : "fail", statusMsg, message);
 });
 
 hasAccountBtn.addEventListener("click", () => {
@@ -235,7 +229,7 @@ function validateUsername(username) {
   let flag = false;
   for (let i = 0; i < username.length; i++) {
     const element = username[i];
-    if (hasDigits.test(element)) {
+    if (hasDigits.test(element) || !hasLetters.test(element)) {
       flag = true;
       break;
     }
