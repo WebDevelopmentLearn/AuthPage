@@ -22,6 +22,22 @@ html {
 
 .signUpForm {
   /* border: 1px solid green; */
+  /* background-color: rgb(199, 230, 248);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 10px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.signUpContainer > div {
   background-color: rgb(199, 230, 248);
   display: flex;
   flex-direction: column;
@@ -30,9 +46,11 @@ html {
   gap: 5px;
   padding: 10px;
   border-radius: 10px;
+  position: relative;
 }
 
-.signUpForm h1 {
+.signUpForm h1,
+.loginForm h1 {
   font-size: 2.8rem;
 }
 
@@ -40,17 +58,20 @@ html {
   font-size: 1.8rem;
 }
 
-.signUpForm input {
+.signUpForm input,
+.loginForm input {
   padding: 2%;
   max-width: 100%;
 }
 
-.signUpForm input:focus {
+.signUpForm input:focus,
+.loginForm input:focus {
   /* border: none; */
   outline: none;
 }
 
-.signUpBtn {
+.signUpBtn,
+.logInBtn {
   margin-top: 10px;
   width: 100%;
   height: 25px;
@@ -58,40 +79,52 @@ html {
   border: 1px solid rgba(203, 203, 203, 0.623);
 }
 
-.signUpBtn:hover {
+.signUpBtn:hover,
+.hasAccount:hover,
+.logInBtn:hover {
   background-color: rgb(224, 183, 246);
 }
 
-.password_container {
+.hasAccount {
+  margin-top: 10px;
+  width: 100%;
+  height: 25px;
+  border-radius: 6px;
+  border: 1px solid rgba(203, 203, 203, 0.623);
+}
+
+.loginContainer {
+  padding: 1%;
+
+  background-color: rgba(244, 220, 183, 0.651);
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginContainer > div {
+  background-color: rgb(199, 230, 248);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 10px;
   position: relative;
 }
-.password-control {
-  position: absolute;
-  background: url("../assets/icons/show_password.svg") 0 0 no-repeat;
 
-  bottom: 59px;
-  right: 30px;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
-.password-control.view_password {
-  background: url("../assets/icons/hide_password.svg") 0 0 no-repeat;
-}
-
-.password-control .group .power-container {
-  background-color: #2e424d;
-  width: 100%;
-  height: 15px;
-  border-radius: 5px;
-}
-
-#power-point {
-  margin-top: 4px;
-  background-color: #d73f40;
-  width: 1%;
-  height: 3px;
-  border-radius: 5px;
-  transition: 0.5s;
+.hidden {
+  display: none;
 }

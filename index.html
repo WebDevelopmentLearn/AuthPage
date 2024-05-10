@@ -9,50 +9,62 @@
   <body>
     <!-- ================ START OF SIGN UP ==================== -->
     <div class="signUpContainer">
-      <form class="signUpForm">
-        <h1>Registration</h1>
-        <input
-          type="text"
-          name="username"
-          class="username"
-          placeholder="Username"
-        />
-        <input
-          type="tel"
-          name="phoneNumber"
-          class="phoneNumber"
-          placeholder="Phone number"
-        />
-        <input type="email" name="email" class="email" placeholder="Email" />
-        <div class="password_container">
+      <div>
+        <form class="signUpForm">
+          <h1>Registration</h1>
+          <input
+            type="text"
+            name="username"
+            class="username"
+            placeholder="Username"
+          />
+          <input
+            type="tel"
+            name="phoneNumber"
+            class="phoneNumber"
+            placeholder="Phone number"
+          />
+          <input type="email" name="email" class="email" placeholder="Email" />
           <input
             type="password"
             name="password"
             class="password"
             placeholder="Password"
           />
-          <a href="#" class="password-control"></a>
-        </div>
-        <button class="signUpBtn" type="submit">Sign In</button>
-        <!-- <input class="signUpBtn" type="submit" value="Sign Up" /> -->
-        <p class="statusMessage"></p>
-      </form>
+          <!-- <a href="#" class="password-control"></a> -->
+
+          <button class="signUpBtn" type="submit">Sign In</button>
+          <!-- <input class="signUpBtn" type="submit" value="Sign Up" /> -->
+          <p class="statusMessage"></p>
+        </form>
+        <button class="hasAccount">Already registered</button>
+      </div>
     </div>
     <!-- ================ END OF SIGN UP ==================== -->
 
     <!-- ================ START OF LOG IN ====================  -->
-    <!-- <div class="loginContainer hidden">
-      <form class="loginForm">
-        <label>
-          Email <input type="email" name="email" class="emailLoginForm"
-        /></label>
-        <label>
-          Password
-          <input type="password" name="password" class="passwordLoginForm"
-        /></label>
-        <input type="submit" value="Log In" />
-      </form>
-    </div> -->
+    <div class="loginContainer hidden">
+      <div>
+        <form class="loginForm">
+          <h1>Registration</h1>
+          <input
+            type="text"
+            name="username"
+            class="loginUsernameInput"
+            placeholder="Username"
+          />
+          <input
+            type="password"
+            name="password"
+            class="loginPasswordInput"
+            placeholder="Password"
+          />
+          <button class="logInBtn" type="submit">Log In</button>
+          <p class="statusLoginMessage"></p>
+          <!-- <input type="submit" value="Log In" /> -->
+        </form>
+      </div>
+    </div>
     <!-- ================ END OF LOG IN ==================== -->
   </body>
   <script src="scripts/index.js"></script>
